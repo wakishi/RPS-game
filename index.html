@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+   </head>
+   <body>
+      <script>
+         //let p1 = 0;
+         //let p2 = 0;
+         let computerSelection;
+         let playerSelection;
+         function computerPlay(){
+            switch(Math.floor(Math.random() * 3)) {
+               case 0: computerSelection = 'rock'; break;
+               case 1: computerSelection = 'paper'; break;
+               case 2: computerSelection = 'scissors';
+            }
+            //console.log(computerSelection);
+         };
+         
+         function playRound(playerSelection, computerSelection) {
+            //computerPlay();
+            playerSelection.toLowerCase();
+            if (playerSelection == 'rock'){
+               if (computerSelection == 'rock'){
+                  console.log("Tie! No winner");
+               } else if (computerSelection == 'paper'){
+                  console.log("You Lose! Paper beats Rock");
+                  p2++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               } else {
+                  console.log("You win! Rock beats Scissors");
+                  p1++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               }
+            } else if (playerSelection == 'paper'){
+               if (computerSelection == 'rock'){
+                  return "You win! Paper beats Rock";
+                  p1++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               } else if (computerSelection == 'paper'){
+                  return "Tie! No winner";
+               } else {
+                  return "You Lose! Scissors beats Paper";
+                  p2++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               }
+            } else {
+               if (computerSelection == 'rock'){
+                  return "You Lose! Rock beats Scissors";
+                  p2++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               } else if (computerSelection == 'paper'){
+                  return "You win! Scissors beats Paper";
+                  p1++;
+                  console.log(`Player: ${p1}  PC: ${p2}`);
+               } else {
+                  return "Tie! No winner";
+               }
+            }
+         }
+
+         function game(){
+            p1 = 0;
+            p2 = 0;
+            while (p1 <= 2){
+               if (p2 == 3){break;}
+               playerSelection = prompt();
+               computerPlay();
+               console.log(playerSelection, computerSelection);
+               playRound(playerSelection, computerSelection);
+            }
+            if (p1 > p2){
+               console.log("Player wins!");
+            } else {console.log("Computer wins!");}
+         }
+      </script>
+   </body>
+</html>
